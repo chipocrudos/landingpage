@@ -1,0 +1,251 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("/ccs/Oswald/Oswald-VariableFont_wght.ttf");
+}
+
+:root {
+  --body-background: #f4f4f4;
+  --menu-background-color: #43537c;
+  --menu-color: #fff;
+  --menu-link-hover: #000;
+  --menu-link-hover-backgroud: #fff;
+  --menu-transparent-color: rgb(0 0 0 / 60%);;
+  --footer-backgroud: #000;;
+  --footer-backgroud-color: #fff;
+  --primary-color: #56585a;
+  --secondary-color: #495666;
+  --card-color: #000;
+  --card-color-hover: #dededf;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Oswald";
+  background-color: var(--body-background);
+}
+
+/* Menu */
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: var(--menu-transparent-color);
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* background-color: var(--menu-background-color); */
+  color: var(--menu-color);
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.navbar .navbar-logo {
+  padding: 10px;
+}
+
+.navbar .navbar-list {
+  grid-column: 3;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-list li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.navbar .navbar-btn {
+  outline: none;
+  display: none;
+}
+
+.navbar .navbar-burger {
+  display: none;
+  color: var(--menu-color);
+}
+
+.burger {
+  width: 35px;
+  height: 5px;
+  background-color: var(--menu-color);
+  margin-top: 5px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--menu-color);
+  padding: 10px;
+  position: relative;
+}
+
+.navbar .navbar-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: var(--menu-link-hover-backgroud);
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform-origin: right;
+  transform: scale(0, 1);
+  transition: transform ease-in-out 0.5s;
+}
+
+.navbar .navbar-link:hover::after {
+  transform: scale(1, 1);
+}
+
+@media screen and (max-width: 770px) {
+  .navbar .navbar-burger {
+    display: grid;
+    cursor: pointer;
+    grid-column: 3;
+    padding-right: 10px;
+  }
+
+  .navbar .navbar-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column: 1/4;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-in-out 0.6s;
+  }
+
+  .navbar input:checked ~ .navbar-list {
+    max-height: 500px;
+  }
+
+  .navbar-list li {
+    padding: 15px 0px;
+  }
+}
+
+/* Bloques */
+
+header {
+  justify-items: center;
+  min-width: 100%;
+}
+
+#video {
+  width: 100%;
+}
+
+.header-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.head-title {
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+section {
+  display: grid;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+/* genericos */
+.text-center {
+  text-align: center;
+}
+
+/* botones */
+.btn {
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: 1px solid;
+}
+
+.btn-primary {
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  color: var(--secondary-color);
+}
+
+/* card */
+.card {
+  padding: 4px;
+}
+
+.card-title {
+  padding: 2px;
+}
+
+/* beneficios */
+#beneficios {
+}
+
+#beneficios .card {
+  margin-top: 1.5rem;
+  color: var(--card-color);
+}
+
+#beneficios .card-media {
+  /* border-radius: 100%;
+  background-color: var(--card-color-hover); */
+}
+
+.ben-icon {
+  font-size: 5rem;
+}
+
+#beneficios .card-title {
+  font-size: 1.4rem;
+}
+
+#beneficios .card-text {
+  padding: 1.1rem;
+}
+
+/* galeria */
+
+.thumbnail {
+  box-shadow: 0 0 10px rgba(33, 33, 33, 0.8);
+  object-fit: cover;
+  border-radius: 5px;
+  /* padding: 4px; */
+  max-width: 95%;
+}
+
+/* footer */
+footer {
+  background: var(--footer-backgroud);
+  color: var(--footer-backgroud-color);
+  padding: 2.5rem;
+  margin-top: 1.1rem;
+}
+
+.footer-sign {
+  margin-top: 1.1rem;
+  padding-top: 1.2rem;
+  font-size: 1.2rem;
+}
